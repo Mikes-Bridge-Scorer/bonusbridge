@@ -1,0 +1,312 @@
+/* bonus-bridge.css - Comprehensive styling for all bridge components */
+
+.bonus-bridge-container {
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+  padding: 0;
+  background-color: #fff;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Header styles */
+.header-blue {
+  background-color: #0275d8;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Deal info styles */
+.deal-info {
+  background-color: #f8f9fa;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  border-bottom: 1px solid #eee;
+}
+
+/* Dealer info styles */
+.dealer-info {
+  text-align: center;
+  padding: 10px;
+  color: #555;
+  font-weight: bold;
+}
+
+/* Bid section styles */
+.bid-section {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 0;
+}
+
+.bid-button {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #f1f1f1;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.bid-button.selected {
+  background-color: #0275d8;
+  color: white;
+}
+
+/* Suit section styles */
+.suit-section {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 0;
+}
+
+.suit-button {
+  width: 36px;
+  height: 36px;
+  border-radius: 2px;
+  background-color: #f1f1f1;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.suit-button.red {
+  color: #dc3545;
+}
+
+.suit-button.black {
+  color: #000;
+}
+
+.suit-button.selected {
+  background-color: #0275d8;
+  color: white !important;
+}
+
+/* Declarer section styles */
+.declarer-section {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 0;
+}
+
+.declarer-button {
+  width: 36px;
+  height: 36px;
+  border-radius: 2px;
+  background-color: #f1f1f1;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.declarer-button.selected {
+  background-color: #0275d8;
+  color: white;
+}
+
+/* Double section styles */
+.double-section {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 0;
+}
+
+.double-button {
+  padding: 8px 15px;
+  border-radius: 2px;
+  background-color: #f1f1f1;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.double-button.selected {
+  background-color: #0275d8;
+  color: white;
+}
+
+/* Contract display styles */
+.contract-display, .contract-box {
+  background-color: #e6f7ff;
+  margin: 10px 0;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Tricks section styles */
+.tricks-section {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 10px 0;
+}
+
+.trick-button {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #f1f1f1;
+  border: none;
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.trick-button.selected {
+  background-color: #0275d8;
+  color: white;
+}
+
+/* Result box styles */
+.result-box, .score-summary-box {
+  background-color: #f8f9fa;
+  margin: 10px 0;
+  padding: 10px;
+  text-align: center;
+}
+
+.score-text {
+  color: #0275d8;
+  font-weight: bold;
+}
+
+/* Action buttons styles */
+.action-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0;
+}
+
+.confirm-button, .continue-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 0;
+  width: 48%;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.edit-button {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 10px 0;
+  width: 48%;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.confirm-button:disabled, .continue-button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+/* Instruction text */
+.instruction-text {
+  text-align: center;
+  margin: 10px 0;
+  color: #555;
+}
+
+/* HCP and Distribution points styles */
+.adjustment-section {
+  padding: 10px;
+}
+
+.adjustment-section h3 {
+  font-size: 16px;
+  margin: 10px 0 5px 0;
+  color: #333;
+}
+
+.help-text {
+  font-size: 14px;
+  color: #0275d8;
+  margin: 0 0 10px 0;
+}
+
+.hcp-grid, .dist-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.point-button {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #f1f1f1;
+  border: none;
+  margin: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.point-button.selected {
+  background-color: #0275d8;
+  color: white;
+}
+
+/* Error message styles */
+.error-message {
+  color: #dc3545;
+  text-align: center;
+  margin: 10px 0;
+}
+
+/* Total points display */
+.total-points {
+  background-color: #f8f9fa;
+  padding: 10px;
+  margin: 10px 0;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Responsive adjustments */
+@media (max-width: 400px) {
+  .bonus-bridge-container {
+    max-width: 100%;
+    border-radius: 0;
+  }
+  
+  .action-buttons {
+    padding: 0 10px;
+  }
+  
+  .trick-button, .point-button, .bid-button, .suit-button, .declarer-button {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,285 @@
+/* src/styles/components/biddingPanel.css */
+
+.bidding-panel {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.bidding-header {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.bidding-header h2 {
+  font-size: 18px;
+  color: #333;
+  margin: 0;
+}
+
+.token-display {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: #FFD700;
+  color: #333;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-weight: bold;
+}
+
+.deal-info {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #333;
+}
+
+.dealer-info {
+  color: #E63946;
+  font-weight: bold;
+}
+
+.vulnerability-info {
+  margin-left: 10px;
+}
+
+.bidding-sequence {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 15px;
+  min-height: 50px;
+  padding: 5px;
+  background-color: #f8f8f8;
+  border-radius: 4px;
+}
+
+.bid {
+  padding: 5px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.bid.north, .bid.south {
+  background-color: #E9F5DB;
+  color: #1d3557;
+}
+
+.bid.east, .bid.west {
+  background-color: #FFCFD2;
+  color: #6a040f;
+}
+
+.direction-indicators {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 40px;
+}
+
+.direction {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #e9ecef;
+  font-weight: bold;
+}
+
+.direction.active {
+  background-color: #4361ee;
+  color: white;
+}
+
+.bidding-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.level-selectors {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.level-button {
+  flex: 1;
+  height: 40px;
+  border: none;
+  background-color: #f8f9fa;
+  border-radius: 50%;
+  cursor: pointer;
+  font-weight: bold;
+  color: #333;
+}
+
+.level-button:hover {
+  background-color: #e9ecef;
+}
+
+.level-button.selected {
+  background-color: #4361ee;
+  color: white;
+}
+
+.strain-selectors {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.strain-button {
+  flex: 1;
+  height: 40px;
+  border: none;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.strain-button:hover {
+  background-color: #e9ecef;
+}
+
+.strain-button.selected {
+  background-color: #4361ee;
+  color: white !important;
+}
+
+.strain-button.red {
+  color: #e63946;
+}
+
+.strain-button.black {
+  color: #1d3557;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.double-button, .redouble-button {
+  flex: 1;
+  height: 40px;
+  border: none;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #333;
+}
+
+.double-button:hover, .redouble-button:hover {
+  background-color: #e9ecef;
+}
+
+.double-button.selected {
+  background-color: #e63946;
+  color: white;
+}
+
+.redouble-button.selected {
+  background-color: #6a040f;
+  color: white;
+}
+
+.submit-controls {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.pass-button, .bid-button, .double-action-button {
+  flex: 1;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.pass-button {
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+.bid-button {
+  background-color: #4361ee;
+  color: white;
+}
+
+.double-action-button {
+  background-color: #e63946;
+  color: white;
+}
+
+.pass-button:hover {
+  background-color: #e9ecef;
+}
+
+.bid-button:hover {
+  background-color: #3f37c9;
+}
+
+.double-action-button:hover {
+  background-color: #d90429;
+}
+
+.pass-button:disabled, .bid-button:disabled, .double-action-button:disabled {
+  background-color: #e9ecef;
+  color: #adb5bd;
+  cursor: not-allowed;
+}
+
+.final-controls {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.agreed-button, .edit-button {
+  flex: 1;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.agreed-button {
+  background-color: #38b000;
+  color: white;
+}
+
+.edit-button {
+  background-color: #6c757d;
+  color: white;
+}
+
+.agreed-button:hover {
+  background-color: #2d9500;
+}
+
+.edit-button:hover {
+  background-color: #5c636a;
+}
+
+.agreed-button:disabled, .edit-button:disabled {
+  background-color: #e9ecef;
+  color: #adb5bd;
+  cursor: not-allowed;
+}

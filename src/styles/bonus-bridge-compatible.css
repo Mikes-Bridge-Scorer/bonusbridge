@@ -1,0 +1,299 @@
+/* 
+ * bonus-bridge-compatible.css 
+ * Uses variables from variables.css while matching the UI in screenshots
+ */
+
+.bonus-bridge-container {
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+  padding: 0;
+  background-color: var(--background-white);
+  font-family: var(--font-family);
+}
+
+/* Header styles */
+.header-blue {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  text-align: center;
+  padding: var(--spacing-sm);
+  font-size: var(--font-size-lg);
+  font-weight: bold;
+}
+
+/* Deal info styles */
+.deal-info {
+  padding: var(--spacing-sm);
+  text-align: left;
+  font-weight: bold;
+}
+
+/* Dealer info styles */
+.dealer-info {
+  text-align: left;
+  padding: var(--spacing-sm) var(--spacing-sm) 0 var(--spacing-sm);
+  color: var(--text-dark);
+}
+
+.vulnerability-info {
+  padding: 0 var(--spacing-sm) var(--spacing-sm) var(--spacing-sm);
+  text-align: left;
+  color: var(--text-dark);
+}
+
+/* Bid section styles - horizontal layout */
+.bid-section {
+  display: flex;
+  flex-wrap: wrap;
+  padding: var(--spacing-xs);
+  border: 1px solid var(--border-color);
+  margin: var(--spacing-xs) var(--spacing-sm);
+}
+
+.bid-button {
+  width: 24px;
+  height: 24px;
+  border-radius: 0;
+  background-color: var(--background-light);
+  border: 1px solid var(--border-color);
+  margin: 1px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.bid-button.selected {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+}
+
+/* Suit section styles - horizontal layout */
+.suit-section {
+  display: flex;
+  flex-wrap: wrap;
+  padding: var(--spacing-xs);
+  border: 1px solid var(--border-color);
+  margin: var(--spacing-xs) var(--spacing-sm);
+}
+
+.suit-button {
+  width: 24px;
+  height: 24px;
+  border-radius: 0;
+  background-color: var(--background-light);
+  border: 1px solid var(--border-color);
+  margin: 1px;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.suit-button.red {
+  color: #dc3545;
+}
+
+.suit-button.black {
+  color: var(--text-dark);
+}
+
+.suit-button.selected {
+  background-color: var(--primary-color);
+  color: var(--text-light) !important;
+}
+
+/* Declarer section styles - horizontal layout */
+.declarer-section {
+  display: flex;
+  flex-wrap: wrap;
+  padding: var(--spacing-xs);
+  border: 1px solid var(--border-color);
+  margin: var(--spacing-xs) var(--spacing-sm);
+}
+
+.declarer-button {
+  width: 24px;
+  height: 24px;
+  border-radius: 0;
+  background-color: var(--background-light);
+  border: 1px solid var(--border-color);
+  margin: 1px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.declarer-button.selected {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+}
+
+/* Double/Redouble section */
+.double-section {
+  display: flex;
+  padding: var(--spacing-xs);
+  border: 1px solid var(--border-color);
+  margin: var(--spacing-xs) var(--spacing-sm);
+}
+
+.double-button {
+  flex: 1;
+  padding: var(--spacing-xs);
+  background-color: var(--background-light);
+  border: 1px solid var(--border-color);
+  margin: 1px;
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+}
+
+.double-button.selected {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+}
+
+/* Contract display */
+.contract-display {
+  text-align: center;
+  padding: var(--spacing-sm);
+  margin: var(--spacing-sm);
+  border-bottom: 1px solid var(--border-color);
+  font-weight: normal;
+}
+
+/* Section labels */
+.section-label {
+  font-weight: bold;
+  margin: var(--spacing-sm) var(--spacing-sm) var(--spacing-xs) var(--spacing-sm);
+}
+
+/* Tricks input styling */
+.tricks-section {
+  display: flex;
+  flex-direction: column;
+  margin: var(--spacing-sm);
+}
+
+.tricks-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.trick-button {
+  width: 24px;
+  height: 24px;
+  border-radius: 0;
+  background-color: var(--background-light);
+  border: 1px solid var(--border-color);
+  margin: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.trick-button.selected {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+}
+
+/* Result box */
+.result-box {
+  text-align: center;
+  margin: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  background-color: var(--background-light);
+  border: 1px solid var(--border-color);
+}
+
+.score-text {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+/* Score summary box for results page */
+.score-summary-box {
+  background-color: var(--background-light);
+  padding: var(--spacing-sm);
+  margin: var(--spacing-sm);
+  border: 1px solid var(--border-color);
+}
+
+/* Points grids for HCP and distribution */
+.points-grid {
+  display: flex;
+  flex-direction: column;
+  margin: var(--spacing-sm);
+}
+
+.points-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.point-button {
+  width: 24px;
+  height: 24px;
+  border-radius: 0;
+  background-color: var(--background-light);
+  border: 1px solid var(--border-color);
+  margin: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.point-button.selected {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+}
+
+/* Help text for points */
+.help-text {
+  margin: 0 var(--spacing-sm);
+  font-size: var(--font-size-sm);
+  color: var(--text-dark);
+}
+
+/* Action buttons */
+.action-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin: var(--spacing-sm);
+}
+
+.continue-button, .confirm-button {
+  flex: 1;
+  margin-right: var(--spacing-xs);
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  border: none;
+  padding: var(--spacing-sm);
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.edit-button {
+  flex: 1;
+  margin-left: var(--spacing-xs);
+  background-color: var(--secondary-color);
+  color: var(--text-light);
+  border: none;
+  padding: var(--spacing-sm);
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.continue-button:disabled, .confirm-button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* Instruction text */
+.instruction-text {
+  text-align: center;
+  margin: var(--spacing-sm);
+  color: var(--text-dark);
+}

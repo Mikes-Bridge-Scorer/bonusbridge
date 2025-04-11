@@ -1,0 +1,259 @@
+/* src/styles/ResultsPage.css */
+
+.results-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.blue-header {
+  background-color: #0078d7;
+  color: white;
+  padding: 15px;
+  border-radius: 5px 5px 0 0;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.blue-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.game-info-section {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  padding: 15px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.game-metadata {
+  flex: 1;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.game-metadata div {
+  margin-bottom: 5px;
+}
+
+.final-scores {
+  flex: 1;
+  text-align: right;
+}
+
+.team-score {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.winner {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #0078d7;
+  margin-top: 10px;
+}
+
+.charts-section {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.chart-container {
+  width: 48%;
+  background-color: white;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.chart-container h3 {
+  text-align: center;
+  margin-top: 0;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.results-table-section {
+  margin-bottom: 30px;
+  padding: 15px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.results-table-section h3 {
+  margin-top: 0;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.results-table th, .results-table td {
+  padding: 8px 12px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.results-table th {
+  background-color: #f0f0f0;
+  font-weight: 600;
+}
+
+.results-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.results-table tr:hover {
+  background-color: #f0f8ff;
+}
+
+.statistics-section {
+  margin-bottom: 30px;
+  padding: 15px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.statistics-section h3 {
+  margin-top: 0;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.statistics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.stat-item {
+  padding: 10px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.stat-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #0078d7;
+}
+
+.export-options {
+  background-color: white;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.export-options h3 {
+  margin-top: 0;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.export-format {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+.export-format label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.export-format input {
+  margin-right: 5px;
+}
+
+.export-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.export-actions button, .action-buttons button {
+  padding: 8px 15px;
+  background-color: #0078d7;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.export-actions button:hover, .action-buttons button:hover {
+  background-color: #0062ad;
+}
+
+.export-actions button:last-child {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.export-actions button:last-child:hover {
+  background-color: #e0e0e0;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+@media (max-width: 768px) {
+  .game-info-section, .charts-section {
+    flex-direction: column;
+  }
+  
+  .chart-container {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .final-scores {
+    text-align: left;
+    margin-top: 20px;
+  }
+  
+  .statistics-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+  }
+  
+  .action-buttons button {
+    width: 100%;
+  }
+}

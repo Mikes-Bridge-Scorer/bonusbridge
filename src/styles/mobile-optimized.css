@@ -1,0 +1,458 @@
+/* 
+ * mobile-optimized.css - Touch-friendly CSS for bridge app
+ * Updated with larger suit symbols and formatting fixes
+ */
+
+/* Base container */
+.bridge-container {
+  width: 100%;
+  max-width: 480px; /* Wider for mobile */
+  margin: 0 auto;
+  padding: 0;
+  background-color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* Narrower container option */
+.bridge-container.narrow {
+  max-width: 360px;
+}
+
+/* Blue header */
+.blue-header {
+  background-color: #0078d4;
+  color: white;
+  padding: 12px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Game subheader */
+.game-subheader {
+  padding: 10px;
+  background-color: #f5f5f5;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Deal info header */
+.deal-header {
+  padding: 10px;
+  background-color: #f5f5f5;
+  text-align: left;
+  font-weight: bold;
+  font-size: 16px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Dealer and vulnerability info - original left-aligned */
+.dealer-info {
+  padding: 8px 10px;
+  font-size: 15px;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Dealer and vulnerability info - centered version */
+.dealer-info-centered {
+  padding: 12px 10px;
+  font-size: 18px;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 8px;
+}
+
+.dealer-info div, .dealer-info-centered div {
+  margin-bottom: 4px;
+}
+
+/* Section labels */
+.section-label {
+  font-weight: bold;
+  margin: 10px 10px 5px 10px;
+  font-size: 16px;
+}
+
+/* Bid buttons row */
+.bid-row {
+  display: flex;
+  border: 1px solid #ddd;
+  margin: 0 10px 10px 10px;
+  background-color: #fff;
+}
+
+.bid-button {
+  flex: 1;
+  height: 40px;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-right: 1px solid #ddd;
+  background-color: #f8f8f8;
+  cursor: pointer;
+}
+
+.bid-button:last-child {
+  border-right: none;
+}
+
+.bid-button.selected {
+  background-color: #0078d4;
+  color: white;
+}
+
+/* Suit buttons row */
+.suit-row {
+  display: flex;
+  border: 1px solid #ddd;
+  margin: 0 10px 10px 10px;
+  background-color: #fff;
+}
+
+.suit-button {
+  flex: 1;
+  height: 40px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-right: 1px solid #ddd;
+  background-color: #f8f8f8;
+  cursor: pointer;
+}
+
+/* Large suit symbols */
+.suit-button.large-symbol {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.suit-button:last-child {
+  border-right: none;
+}
+
+.suit-button.red {
+  color: #d83b01;
+}
+
+.suit-button.black {
+  color: #000;
+}
+
+.suit-button.selected {
+  background-color: #0078d4;
+  color: white !important;
+}
+
+/* Declarer buttons row */
+.declarer-row {
+  display: flex;
+  border: 1px solid #ddd;
+  margin: 0 10px 10px 10px;
+  background-color: #fff;
+}
+
+.declarer-button {
+  flex: 1;
+  height: 40px;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-right: 1px solid #ddd;
+  background-color: #f8f8f8;
+  cursor: pointer;
+}
+
+.declarer-button:last-child {
+  border-right: none;
+}
+
+.declarer-button.selected {
+  background-color: #0078d4;
+  color: white;
+}
+
+/* Double buttons */
+.double-row {
+  display: flex;
+  margin: 0 10px 10px 10px;
+}
+
+.double-button {
+  flex: 1;
+  height: 40px;
+  border: 1px solid #ddd;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.double-button:last-child {
+  margin-right: 0;
+}
+
+.double-button.selected {
+  background-color: #0078d4;
+  color: white;
+}
+
+/* Contract display - regular */
+.contract-display {
+  background-color: #e6f7ff;
+  margin: 10px;
+  padding: 12px;
+  text-align: center;
+  font-size: 16px;
+  border: 1px solid #ddd;
+}
+
+/* Contract display - blue highlighted version */
+.contract-display-blue {
+  background-color: #e6f7ff;
+  margin: 10px;
+  padding: 15px;
+  text-align: center;
+  font-size: 20px;
+  color: #0078d4;
+  border: 1px solid #0078d4;
+}
+
+/* Instruction text */
+.instruction-text {
+  text-align: center;
+  padding: 10px;
+  font-size: 16px;
+}
+
+/* Tricks grid */
+.tricks-grid {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 10px;
+  margin-bottom: 10px;
+  justify-content: center;
+}
+
+.trick-button {
+  width: 40px;
+  height: 40px;
+  margin: 2px;
+  font-size: 18px;
+  font-weight: bold;
+  border: 1px solid #ddd;
+  background-color: #f8f8f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.trick-button.selected {
+  background-color: #0078d4;
+  color: white;
+}
+
+/* Result display */
+.result-box {
+  margin: 10px;
+  padding: 12px;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  text-align: center;
+  font-size: 16px;
+}
+
+.scoring-text {
+  color: #0078d4;
+  font-weight: bold;
+}
+
+/* Score summary */
+.score-summary {
+  margin: 10px;
+  padding: 12px;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  text-align: center;
+  font-size: 16px;
+}
+
+/* HCP and Distribution points */
+.points-section {
+  margin: 10px;
+}
+
+.points-label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+
+.points-help {
+  font-style: italic;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.points-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+  justify-content: center;
+}
+
+.point-button {
+  width: 40px;
+  height: 40px;
+  margin: 2px;
+  font-size: 16px;
+  font-weight: bold;
+  border: 1px solid #ddd;
+  background-color: #f8f8f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.point-button.selected {
+  background-color: #0078d4;
+  color: white;
+}
+
+/* Points summary */
+.points-summary {
+  margin: 15px 10px;
+  padding: 10px;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  text-align: center;
+  font-size: 16px;
+}
+
+/* Action buttons */
+.action-buttons {
+  display: flex;
+  margin: 10px;
+  gap: 10px;
+}
+
+.continue-button, .confirm-button, .agreed-button {
+  flex: 1;
+  height: 45px;
+  background-color: #0078d4;
+  color: white;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.edit-button {
+  flex: 1;
+  height: 45px;
+  background-color: #666;
+  color: white;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.continue-button:disabled, .confirm-button:disabled, .agreed-button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+/* Larger contract display */
+.contract-display-large {
+  background-color: #e6f7ff;
+  margin: 10px;
+  padding: 15px;
+  text-align: center;
+  font-size: 22px;
+  border: 1px solid #0078d4;
+}
+
+/* Larger trick buttons and grid */
+.tricks-grid-large {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 10px;
+  margin-bottom: 8px;
+  justify-content: center;
+}
+
+.trick-button-large {
+  width: 45px;
+  height: 45px;
+  margin: 3px;
+  font-size: 20px;
+  font-weight: bold;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  background-color: #f8f8f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.trick-button-large.selected {
+  background-color: #0078d4;
+  color: white;
+}
+
+/* Larger result display */
+.result-box-large {
+  margin: 10px;
+  padding: 15px;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.result-text-large {
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+/* HCP counting prompt */
+.count-hcp-prompt {
+  margin: 10px;
+  padding: 12px;
+  background-color: #ffeeee;
+  border: 1px solid #ffcccc;
+  text-align: center;
+  font-size: 18px;
+  color: #d83b01;
+}
+/* Larger points summary with increased font size */
+.points-summary-large {
+  margin: 15px 10px;
+  padding: 15px;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.points-summary-large div {
+  margin-bottom: 6px;
+}

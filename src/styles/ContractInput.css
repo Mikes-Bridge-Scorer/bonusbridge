@@ -1,0 +1,193 @@
+/* src/styles/ContractInput.css */
+
+.contract-input-container {
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #f5f5f5;
+  font-family: Arial, sans-serif;
+}
+
+.blue-header {
+  background-color: #0074D9;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+}
+
+.blue-header h2 {
+  margin: 0;
+  padding: 5px 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.game-info {
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+.dealer-info {
+  background-color: #f8f8f8;
+  padding: 10px 15px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.dealer-row {
+  margin-bottom: 5px;
+}
+
+.section-container {
+  padding: 15px;
+}
+
+.section-title {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.button-row {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.bid-button {
+  flex: 1;
+  padding: 10px 0;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  text-align: center;
+  font-weight: bold;
+  background-color: white;
+  color: #333;
+}
+
+.bid-button.selected {
+  background-color: #0074D9;
+  color: white;
+  border: 1px solid #0074D9;
+}
+
+.suit-button {
+  flex: 1;
+  padding: 10px 0;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  text-align: center;
+  font-weight: bold;
+  background-color: white;
+  color: #333;
+}
+
+.suit-button.red {
+  color: red;
+}
+
+.suit-button.selected {
+  background-color: #0074D9;
+  color: white;
+  border: 1px solid #0074D9;
+}
+
+.declarer-button {
+  flex: 1;
+  padding: 10px 0;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  text-align: center;
+  font-weight: bold;
+  background-color: white;
+  color: #333;
+}
+
+.declarer-button.selected {
+  background-color: #0074D9;
+  color: white;
+  border: 1px solid #0074D9;
+}
+
+.double-button {
+  flex: 1;
+  padding: 10px 0;
+  border: 1px solid #ddd;
+  margin-right: 5px;
+  cursor: pointer;
+  text-align: center;
+  font-weight: bold;
+  background-color: white;
+  color: #333;
+}
+
+.double-button.selected {
+  background-color: #0074D9;
+  color: white;
+  border: 1px solid #0074D9;
+}
+
+.redouble-button {
+  flex: 1;
+  padding: 10px 0;
+  border: 1px solid #ddd;
+  margin-left: 5px;
+  text-align: center;
+  font-weight: bold;
+  background-color: white;
+  color: #333;
+}
+
+.redouble-button.selected {
+  background-color: #0074D9;
+  color: white;
+  border: 1px solid #0074D9;
+}
+
+.redouble-button.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.contract-display {
+  background-color: #e6f7ff;
+  padding: 10px;
+  text-align: center;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.action-button-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.agree-button {
+  flex: 1;
+  background-color: #0074D9;
+  color: white;
+  border: none;
+  padding: 12px 0;
+  cursor: pointer;
+  text-align: center;
+  font-weight: bold;
+  margin-right: 5px;
+  text-transform: uppercase;
+}
+
+.agree-button.disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.edit-button {
+  flex: 1;
+  background-color: #f8f8f8;
+  color: #333;
+  border: 1px solid #ddd;
+  padding: 12px 0;
+  cursor: pointer;
+  margin-left: 5px;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+}

@@ -1,0 +1,255 @@
+/* src/components/game/ContractInput.css */
+
+.contract-input-container {
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Game info section */
+.game-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.token-count {
+  background-color: #ffd700;
+  color: #333;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+/* Dealer info section */
+.dealer-info {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  padding: 8px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+}
+
+/* Input sections */
+.input-section {
+  margin-bottom: 20px;
+}
+
+.input-section h3 {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  color: #555;
+}
+
+/* Level buttons */
+.level-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.level-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background-color: #e9ecef;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.level-button:hover {
+  background-color: #dee2e6;
+}
+
+.level-button.selected {
+  background-color: #0275d8;
+  color: white;
+}
+
+/* Strain buttons */
+.strain-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.strain-button {
+  flex: 1;
+  height: 45px;
+  border-radius: 4px;
+  border: none;
+  background-color: #e9ecef;
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.strain-button:hover {
+  background-color: #dee2e6;
+}
+
+.strain-button.selected {
+  background-color: #0275d8;
+  color: white !important;
+}
+
+.strain-button.red {
+  color: #dc3545;
+}
+
+.strain-button.black {
+  color: #212529;
+}
+
+/* Declarer buttons */
+.declarer-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.declarer-button {
+  flex: 1;
+  height: 40px;
+  border-radius: 4px;
+  border: none;
+  background-color: #e9ecef;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.declarer-button:hover {
+  background-color: #dee2e6;
+}
+
+.declarer-button.selected {
+  background-color: #0275d8;
+  color: white;
+}
+
+/* Double/Redouble buttons */
+.double-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.double-button {
+  flex: 1;
+  height: 40px;
+  border-radius: 4px;
+  border: none;
+  background-color: #e9ecef;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.double-button:hover {
+  background-color: #dee2e6;
+}
+
+.double-button.selected {
+  background-color: #dc3545;
+  color: white;
+}
+
+/* Contract display */
+.contract-display {
+  background-color: #f8f9fa;
+  padding: 12px;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Action buttons */
+.action-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.confirm-button, .edit-button {
+  flex: 1;
+  height: 45px;
+  border-radius: 4px;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.confirm-button {
+  background-color: #38b000;
+  color: white;
+}
+
+.confirm-button:hover {
+  background-color: #2d9500;
+}
+
+.edit-button {
+  background-color: #6c757d;
+  color: white;
+}
+
+.edit-button:hover {
+  background-color: #5a6268;
+}
+
+/* Responsive adjustments */
+@media (max-width: 400px) {
+  .contract-input-container {
+    padding: 15px;
+  }
+  
+  .level-button, .declarer-button {
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+  }
+  
+  .strain-button {
+    height: 40px;
+    font-size: 20px;
+  }
+  
+  .double-button {
+    font-size: 14px;
+  }
+}
