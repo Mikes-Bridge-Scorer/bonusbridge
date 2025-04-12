@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/bonusbridge/static/css/main.47820084.css",
+    "main.js": "/bonusbridge/static/js/main.f285ea7c.js",
+    "static/js/453.cac1f22d.chunk.js": "/bonusbridge/static/js/453.cac1f22d.chunk.js",
+    "index.html": "/bonusbridge/index.html",
+    "main.47820084.css.map": "/bonusbridge/static/css/main.47820084.css.map",
+    "main.f285ea7c.js.map": "/bonusbridge/static/js/main.f285ea7c.js.map",
+    "453.cac1f22d.chunk.js.map": "/bonusbridge/static/js/453.cac1f22d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.47820084.css",
+    "static/js/main.f285ea7c.js"
+  ]
+}

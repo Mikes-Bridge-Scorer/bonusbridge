@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Background square -->
+  <rect width="512" height="512" fill="#8BC34A" />
+  
+  <!-- "BonuS" text - centered horizontally -->
+  <text x="256" y="150" font-family="Arial, sans-serif" font-size="72" font-weight="bold" fill="#333333" text-anchor="middle">BonuS</text>
+  
+  <!-- Large "B" - centered horizontally -->
+  <text x="256" y="350" font-family="Arial, sans-serif" font-size="250" font-weight="bold" fill="#333333" text-anchor="middle">B</text>
+</svg>
