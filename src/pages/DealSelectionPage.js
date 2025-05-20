@@ -1,14 +1,20 @@
 // C:/bridge-scorer/bonusbridge/src/pages/DealSelectionPage.js
 
 import React, { useState, useEffect } from 'react';
-import './DealSelectionPage.css'; // Make sure you have this CSS file
+import './DealSelectionPage.css';
 
 const DealSelectionPage = ({ gameSettings, setGameSettings, onNext }) => {
+  const [selectedOption, setSelectedOption] = useState(null);
   const [tokenBalance, setTokenBalance] = useState(0);
   const [showConfirmation, setShowConfirmation] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(null);
+  const [confirmationDetails, setConfirmationDetails] = useState({
+    deals: 0,
+    tokens: 0,
+    time: '',
+    remainingTokens: 0
+  });
 
-  // Define available options directly in this component
+  // Options for the deal selection
   const options = [
     { id: 1, deals: 10, tokens: 40, time: '1 hr 40 min' },
     { id: 2, deals: 12, tokens: 48, time: '1 hr 50 min' },
@@ -18,13 +24,20 @@ const DealSelectionPage = ({ gameSettings, setGameSettings, onNext }) => {
     { id: 6, deals: 24, tokens: 96, time: '3 hrs' }
   ];
 
-  // Load token balance on component mount
+  // Load token balance from localStorage and clear any stale session data
   useEffect(() => {
-    loadTokenBalance();
-  }, []);
-
-  // Function to load token balance from localStorage
-  const loadTokenBalance = () => {
+    console.log("DealSelectionPage mounted - clearing any stale sessionStorage data");
+    
+    // Reset global game state on mount
+    window.BRIDGE_GAME_STATE.selectedDeals = null;
+    
+    // Clear sessionStorage to start fresh
+    sessionStorage.clear();
+    localStorage.removeItem('selectedDealsCount');
+    
+    console.log("Cleared stale session data");
+    
+    // Load token balance
     console.log("Loading token balance from localStorage:");
     const userData = localStorage.getItem('bonusBridgeUser');
     if (userData) {
@@ -37,131 +50,147 @@ const DealSelectionPage = ({ gameSettings, setGameSettings, onNext }) => {
         console.error("Error parsing user data:", error);
       }
     }
-  };
+  }, []);
 
   // Handle option selection
   const handleOptionSelect = (option) => {
     console.log("Option clicked:", option.id);
     console.log("Option details:", option);
     console.log("Current tokens:", tokenBalance);
+    
     setSelectedOption(option);
-    setShowConfirmation(true);
+    
+    // Show confirmation dialog with details
+    if (tokenBalance >= option.tokens) {
+      setConfirmationDetails({
+        deals: option.deals,
+        tokens: option.tokens,
+        time: option.time,
+        remainingTokens: tokenBalance - option.tokens
+      });
+      setShowConfirmation(true);
+    } else {
+      alert(`Not enough tokens. You need ${option.tokens} tokens but have ${tokenBalance}.`);
+    }
   };
 
   // Handle confirmation
   const handleConfirm = () => {
-    console.log("Confirming selection");
-    if (selectedOption) {
-      // Update game settings
-      setGameSettings({
-        deals: selectedOption.deals,
-        tokens: selectedOption.tokens,
-        time: selectedOption.time
-      });
-      
-      // Update token balance in localStorage
-      const userData = localStorage.getItem('bonusBridgeUser');
-      if (userData) {
-        try {
-          const user = JSON.parse(userData);
-          const newBalance = user.tokenBalance - selectedOption.tokens;
-          user.tokenBalance = newBalance;
-          localStorage.setItem('bonusBridgeUser', JSON.stringify(user));
-          console.log("Updated token balance:", newBalance);
-        } catch (error) {
-          console.error("Error updating token balance:", error);
-        }
+    console.log("Confirming selection with deal count:", confirmationDetails.deals);
+    
+    // EMERGENCY FIX: Store in multiple places
+    sessionStorage.clear(); // Clear first
+    
+    // Store deal count in multiple locations
+    sessionStorage.setItem('currentSessionDealsCount', confirmationDetails.deals.toString());
+    localStorage.setItem('selectedDealsCount', confirmationDetails.deals.toString());
+    
+    // Store in global variable as a fallback
+    window.BRIDGE_GAME_STATE.selectedDeals = confirmationDetails.deals;
+    
+    console.log("Deal count stored in multiple locations:", confirmationDetails.deals);
+    console.log("Verification - Values stored:");
+    console.log("- sessionStorage:", sessionStorage.getItem('currentSessionDealsCount'));
+    console.log("- localStorage:", localStorage.getItem('selectedDealsCount'));
+    console.log("- global variable:", window.BRIDGE_GAME_STATE.selectedDeals);
+    
+    // Update token balance in localStorage
+    const userData = localStorage.getItem('bonusBridgeUser');
+    if (userData) {
+      try {
+        const parsedData = JSON.parse(userData);
+        parsedData.tokenBalance = confirmationDetails.remainingTokens;
+        localStorage.setItem('bonusBridgeUser', JSON.stringify(parsedData));
+        console.log("Updated token balance:", confirmationDetails.remainingTokens);
+        setTokenBalance(confirmationDetails.remainingTokens);
+      } catch (error) {
+        console.error("Error updating token balance:", error);
       }
-      
-      // Close confirmation dialog
-      setShowConfirmation(false);
-      
-      // Navigate to next page
-      console.log("Navigating to next page");
-      onNext();
     }
-  };
-
-  // Cancel confirmation
-  const handleCancel = () => {
+    
+    // Update game settings
+    setGameSettings({
+      deals: confirmationDetails.deals,
+      tokens: confirmationDetails.tokens,
+      time: confirmationDetails.time
+    });
+    
+    // Close confirmation dialog
     setShowConfirmation(false);
-    setSelectedOption(null);
+    
+    // Navigate to next page - with a delay to ensure state updates are complete
+    console.log("Navigating to next page");
+    setTimeout(() => {
+      onNext();
+    }, 100); // Short delay to ensure state updates complete
   };
 
   return (
-    <div className="container">
-      <div className="deal-selection-container">
-        <h2 className="deal-selection-title">Select Deals</h2>
-        <div className="deal-instructions">
-          How many deals for this game?
-        </div>
-
+    <div className="deal-selection-container">
+      <h2>Select Deals</h2>
+      
+      <div className="selection-info">
+        <p>How many deals for this game?</p>
         <div className="token-info">
           <div className="token-icon">🪙</div>
           <div className="token-details">
-            <div className="token-balance">{tokenBalance} Tokens available</div>
-            <div className="token-rate">4 tokens per deal</div>
+            <p className="token-balance">{tokenBalance} Tokens available</p>
+            <p className="token-rate">4 tokens per deal</p>
           </div>
         </div>
-
-        <div className="deal-options-grid">
-          {options.map(option => (
-            <div
-              key={option.id}
-              className={`deal-option ${selectedOption && selectedOption.id === option.id ? 'selected' : ''} ${option.tokens > tokenBalance ? 'disabled' : ''}`}
-              onClick={() => option.tokens <= tokenBalance && handleOptionSelect(option)}
-            >
-              <div className="deal-count">{option.deals}</div>
-              <div className="token-count">{option.tokens} tokens</div>
-              <div className="time-estimate">{option.time}</div>
-            </div>
-          ))}
-        </div>
-
-        <div className="button-container">
-          <button 
-            className="btn btn-primary confirm-btn"
-            onClick={() => selectedOption && handleConfirm()}
-            disabled={!selectedOption}
-          >
-            Confirm
-          </button>
-          
-          <button className="btn btn-secondary cancel-btn" onClick={() => handleCancel()}>
-            Cancel
-          </button>
-        </div>
-
-        {/* Confirmation Dialog */}
-        {showConfirmation && selectedOption && (
-          <div className="confirmation-overlay">
-            <div className="confirmation-dialog">
-              <div className="confirmation-content">
-                <h3>Confirm Selection</h3>
-                <p>
-                  You have selected <strong>{selectedOption.deals} deals</strong> which will take
-                  approximately <strong>{selectedOption.time}</strong> and use <strong>{selectedOption.tokens} tokens</strong>,
-                  leaving you with <strong>{tokenBalance - selectedOption.tokens} tokens</strong>.
-                </p>
-                <div className="confirmation-buttons">
-                  <button 
-                    className="btn btn-primary" 
-                    onClick={handleConfirm}
-                  >
-                    Confirm
-                  </button>
-                  <button 
-                    className="btn btn-secondary" 
-                    onClick={handleCancel}
-                  >
-                    Cancel
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
       </div>
+      
+      <div className="options-grid">
+        {options.map(option => (
+          <div 
+            key={option.id} 
+            className={`option-card ${selectedOption?.id === option.id ? 'selected' : ''}`}
+            onClick={() => handleOptionSelect(option)}
+          >
+            <div className="deal-count">{option.deals}</div>
+            <div className="token-count">{option.tokens} tokens</div>
+            <div className="time-estimate">{option.time}</div>
+          </div>
+        ))}
+      </div>
+      
+      <div className="action-buttons">
+        <button 
+          className="confirm-button"
+          onClick={handleConfirm}
+          disabled={!selectedOption}
+        >
+          Confirm
+        </button>
+        <button className="cancel-button">
+          Cancel
+        </button>
+      </div>
+      
+      {showConfirmation && (
+        <div className="confirmation-overlay">
+          <div className="confirmation-dialog">
+            <h3>Confirm Selection</h3>
+            <p>
+              You have selected {confirmationDetails.deals} deals which will take approximately {confirmationDetails.time} and use {confirmationDetails.tokens} tokens, leaving you with {confirmationDetails.remainingTokens} tokens.
+            </p>
+            <div className="confirmation-buttons">
+              <button 
+                className="confirm-button"
+                onClick={handleConfirm}
+              >
+                Confirm
+              </button>
+              <button 
+                className="cancel-button"
+                onClick={() => setShowConfirmation(false)}
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

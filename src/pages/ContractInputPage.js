@@ -1,4 +1,4 @@
-// C:/bridge-scorer/bonusbridge/src/pages/ContractInputPage.js - Edit button removed
+// C:/bridge-scorer/bonusbridge/src/pages/ContractInputPage.js
 
 import React, { useState, useEffect } from 'react';
 import './ContractInputPage.css';
@@ -11,8 +11,42 @@ const ContractInputPage = ({ gameData, setGameData, onNext }) => {
   const [isRedoubled, setIsRedoubled] = useState(false);
   const [tokenBalance, setTokenBalance] = useState(0);
   const [contractSummary, setContractSummary] = useState('');
+  
+  console.log("ContractInputPage render with gameData:", gameData);
 
   useEffect(() => {
+    console.log("ContractInputPage useEffect running");
+    
+    // EMERGENCY FIX: Force deal count correction
+    // Check all possible sources for deal count
+    const sessionDealsCount = sessionStorage.getItem('currentSessionDealsCount');
+    const localDealsCount = localStorage.getItem('selectedDealsCount');
+    const globalDealsCount = window.BRIDGE_GAME_STATE?.selectedDeals;
+    
+    console.log("Available deal counts:", {
+      session: sessionDealsCount,
+      local: localDealsCount,
+      global: globalDealsCount,
+      gameData: gameData.deals
+    });
+    
+    // Take first non-null value in priority order
+    const correctDealsCount = sessionDealsCount ? parseInt(sessionDealsCount) :
+                            localDealsCount ? parseInt(localDealsCount) :
+                            globalDealsCount ? globalDealsCount :
+                            gameData.deals || 10;
+    
+    console.log("Using final deal count:", correctDealsCount);
+    
+    // Force update if different
+    if (gameData.deals !== correctDealsCount) {
+      console.log("Correcting game data deals from", gameData.deals, "to", correctDealsCount);
+      setGameData(prev => ({
+        ...prev,
+        deals: correctDealsCount
+      }));
+    }
+    
     // Load token balance
     const userData = localStorage.getItem('bonusBridgeUser');
     if (userData) {
@@ -76,12 +110,44 @@ const ContractInputPage = ({ gameData, setGameData, onNext }) => {
     }
   };
 
+  // Get the display deals count from the most reliable source
+  const getCorrectDealsCount = () => {
+    // First try sessionStorage
+    const sessionDealsCount = sessionStorage.getItem('currentSessionDealsCount');
+    if (sessionDealsCount) {
+      return parseInt(sessionDealsCount);
+    }
+    
+    // Then try localStorage
+    const localDealsCount = localStorage.getItem('selectedDealsCount');
+    if (localDealsCount) {
+      return parseInt(localDealsCount);
+    }
+    
+    // Then try global variable
+    if (window.BRIDGE_GAME_STATE?.selectedDeals) {
+      return window.BRIDGE_GAME_STATE.selectedDeals;
+    }
+    
+    // Fall back to gameData.deals if available
+    if (gameData.deals) {
+      return gameData.deals;
+    }
+    
+    // Last resort - default value
+    return 10;
+  };
+
+  // Get the display deals count
+  const displayDealsCount = getCorrectDealsCount();
+  console.log("Final display deals count:", displayDealsCount);
+
   return (
     <div className="contract-input-container">
       <div className="header">ENTER CONTRACT</div>
       
       <div className="game-info">
-        Game {gameData.gameNumber} - Deal {gameData.dealNumber} of {gameData.deals} - 
+        Game {gameData.gameNumber} - Deal {gameData.dealNumber} of {displayDealsCount} - 
         Dealer {gameData.dealer} - {getVulnerabilityText(gameData.vulnerability)} - 
         Tokens {tokenBalance}
       </div>

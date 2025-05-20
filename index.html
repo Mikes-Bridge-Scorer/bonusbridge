@@ -1,1 +1,75 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="/bonusbridge/favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#2196f3"/><meta name="description" content="BonusBridge - Contract Bridge Scoring App"/><link rel="apple-touch-icon" href="/bonusbridge/logo192.png"/><link rel="manifest" href="/bonusbridge/manifest.json"/><title>BonusBridge</title><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="BonusBridge"><link rel="apple-touch-icon" sizes="152x152" href="/bonusbridge/logo192.png"><link rel="apple-touch-icon" sizes="180x180" href="/bonusbridge/logo192.png"><link rel="apple-touch-icon" sizes="167x167" href="/bonusbridge/logo192.png"><script defer="defer" src="/bonusbridge/static/js/main.f285ea7c.js"></script><link href="/bonusbridge/static/css/main.47820084.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <link rel="icon" href="/bonusbridge/favicon.ico"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#2196f3"/>
+    <meta name="description" content="BonusBridge - Contract Bridge Scoring App"/>
+    <link rel="apple-touch-icon" href="/bonusbridge/logo192.png"/>
+    <link rel="manifest" href="/bonusbridge/manifest.json"/>
+    <title>BonusBridge</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="BonusBridge">
+    <link rel="apple-touch-icon" sizes="152x152" href="/bonusbridge/logo192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/bonusbridge/logo192.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="/bonusbridge/logo192.png">
+    <script defer="defer" src="/bonusbridge/static/js/main.f285ea7c.js"></script>
+    <link href="/bonusbridge/static/css/main.47820084.css" rel="stylesheet">
+</head>
+<body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    
+    <!-- Initialize global deal count storage -->
+    <script>
+        // Reset and initialize global variables when the page loads
+        window.addEventListener('load', function() {
+            console.log("DEBUG: Page load event fired");
+            
+            // Initialize the deal count storage
+            window.DEAL_COUNT_FOR_GAME = {};
+            console.log("DEBUG: Initialized DEAL_COUNT_FOR_GAME storage on page load");
+            
+            // Initialize direct deals count
+            window.DIRECT_DEALS_COUNT = null;
+            console.log("DEBUG: Reset DIRECT_DEALS_COUNT");
+        });
+    </script>
+    
+    <!-- Debug function to track game state -->
+    <script>
+        // Debug function to track game number and deal count
+        window.debugGameStatus = function() {
+            console.log("======== DEBUG GAME STATUS ========");
+            const lastGameNumber = localStorage.getItem('lastGameNumber');
+            console.log("Last game number in localStorage:", lastGameNumber);
+            
+            if (lastGameNumber) {
+                const currentGameNumber = parseInt(lastGameNumber) + 1;
+                console.log("Current game number (inferred):", currentGameNumber);
+            }
+            
+            console.log("DEAL_COUNT_FOR_GAME:", window.DEAL_COUNT_FOR_GAME);
+            console.log("DIRECT_DEALS_COUNT:", window.DIRECT_DEALS_COUNT);
+            
+            // Log all localStorage items related to deals
+            console.log("LocalStorage deal-related items:");
+            for(let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                if (key.includes('deal') || key.includes('Deal') || key.includes('game') || key.includes('Game')) {
+                    console.log(`  ${key}: ${localStorage.getItem(key)}`);
+                }
+            }
+            console.log("==================================");
+        };
+        
+        // Call this every 5 seconds
+        setInterval(window.debugGameStatus, 5000);
+        
+        // Call immediately
+        setTimeout(window.debugGameStatus, 1000);
+    </script>
+</body>
+</html>

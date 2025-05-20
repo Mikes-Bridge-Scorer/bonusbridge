@@ -193,3 +193,32 @@ h2 {
     padding-bottom: 5px;
   }
 }
+/* Add this to your ScoreConfirmationPage.css */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 10px;
+}
+
+.info-button {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: background-color 0.2s;
+}
+
+.info-button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Existing styles remain unchanged */
